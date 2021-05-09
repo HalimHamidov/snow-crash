@@ -1,0 +1,25 @@
+find / -user flag00 2>/dev/null
+find / * -user flag00 2>/dev/null
+ls -l /usr/sbin/john
+cat /usr/sbin/john
+cdiiddwpgswtgt
+Пробуем этот пароль, но он не работает.
+    поэтому предполагается, что он зашифрован.
+    На видео интра мы видим, что сайт dcode.fr
+    рекомендуется.
+    Заходим на dcode.fr, спускаемся в раздел
+    криптографии, и мы тестируем первый тип
+    шифрование: код Цезаря.
+https://www.dcode.fr/caesar-cipher
+nottoohardhere
+
+Вводит след.команду
+level00@SnowCrash:~$ su flag00
+Password: nottoohardhere
+Don't forget to launch getflag !
+flag00@SnowCrash:~$ getflag
+Check flag.Here is your token : x24ti5gi3x0ol2eh4esiuxias
+flag00@SnowCrash:~$ su level01
+Password: x24ti5gi3x0ol2eh4esiuxias
+level01@SnowCrash:~$
+
