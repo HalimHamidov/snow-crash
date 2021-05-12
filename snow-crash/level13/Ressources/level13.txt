@@ -1,0 +1,58 @@
+*взлом getflag путем подмены uid
+level13@SnowCrash:~$ ls
+level13
+level13@SnowCrash:~$ ./level13
+UID 2013 started us but we we expect 4242
+
+level13@SnowCrash:~$ gdb getflag
+GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i686-linux-gnu".
+For bug reporting instructions, please see:
+<http://bugs.launchpad.net/gdb-linaro/>...
+Reading symbols from /bin/getflag...(no debugging symbols found)...done.
+(gdb) break *main+72
+Breakpoint 1 at 0x804898e
+(gdb) break *main+452
+Breakpoint 2 at 0x8048b0a
+(gdb) r
+Starting program: /bin/getflag
+
+Breakpoint 1, 0x0804898e in main ()
+(gdb) set $eax=0
+(gdb) c
+Continuing.
+
+Breakpoint 2, 0x08048b0a in main ()
+(gdb) set $eax=452
+(gdb) c
+Continuing.
+Check flag.Here is your token :
+Nope there is no token here for you sorry. Try again :)
+[Inferior 1 (process 4544) exited normally]
+(gdb) set $eax=3013
+No registers.
+(gdb) c
+The program is not being run.
+(gdb) r
+Starting program: /bin/getflag
+
+Breakpoint 1, 0x0804898e in main ()
+(gdb) set $eax=0
+(gdb) c
+Continuing.
+
+Breakpoint 2, 0x08048b0a in main ()
+(gdb) set $eax=3013
+(gdb) c
+Continuing.
+Check flag.Here is your token : 2A31L79asukciNyi8uppkEuSx
+[Inferior 1 (process 4556) exited normally]
+
+level13@SnowCrash:~$ su level14
+Password: /2A31L79asukciNyi8uppkEuSx/
+level14@SnowCrash:~$

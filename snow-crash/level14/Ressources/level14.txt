@@ -1,0 +1,34 @@
+*взлом getflag путем подмены uid
+
+level14@SnowCrash:~$ gdb getflag
+GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i686-linux-gnu".
+For bug reporting instructions, please see:
+<http://bugs.launchpad.net/gdb-linaro/>...
+Reading symbols from /bin/getflag...(no debugging symbols found)...done.
+(gdb) break *main+72
+Breakpoint 1 at 0x804898e
+(gdb) break *main+452
+Breakpoint 2 at 0x8048b0a
+(gdb) r
+Starting program: /bin/getflag
+
+Breakpoint 1, 0x0804898e in main ()
+(gdb) set $eax=0
+(gdb) c
+Continuing.
+
+Breakpoint 2, 0x08048b0a in main ()
+(gdb) set $eax = 3014
+(gdb) c
+Continuing.
+Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+[Inferior 1 (process 4626) exited normally]
+(gdb) q
+
+7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ

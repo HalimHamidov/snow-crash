@@ -1,0 +1,61 @@
+➜  ~ ssh level00@192.168.56.101 -p 4242
+	   _____                      _____               _
+	  / ____|                    / ____|             | |
+	 | (___  _ __   _____      _| |     _ __ __ _ ___| |__
+	  \___ \| '_ \ / _ \ \ /\ / / |    | '__/ _` / __| '_ \
+	  ____) | | | | (_) \ V  V /| |____| | | (_| \__ \ | | |
+	 |_____/|_| |_|\___/ \_/\_/  \_____|_|  \__,_|___/_| |_|
+
+  Good luck & Have fun
+
+          192.168.56.101
+level00@192.168.56.101's password: /level00/
+
+Once logged to the "flagXX" account, launch the "getflag" command.
+2> /dev/null позволяет скрыть ошибки,
+Короче говоря, он перенаправляет stderr(fd 2) в черную дыру (отбрасывает вывод команды).
+Команда для поиска файла, принадлежащего flag00
+
+find / -user flag00 2>/dev/null
+ls -l /usr/sbin/john
+cat /usr/sbin/john
+cdiiddwpgswtgt
+Пробуем этот пароль, но он не работает.
+    поэтому предполагается, что он зашифрован.
+    На видео интра мы видим, что сайт dcode.fr
+    рекомендуется.
+    Заходим на dcode.fr, спускаемся в раздел
+    криптографии, и мы тестируем первый тип
+    шифрование: код Цезаря.
+https://www.dcode.fr/caesar-cipher
+nottoohardhere
+
+cat /usr/sbin/john | tr '[A-Za-z]' '[L-ZA-Kl-za-k]'
+nottoohardhere
+https://rot13.com/
+rot11 encoded
+
+Вводит след.команду
+level00@SnowCrash:~$ su flag00
+Password: nottoohardhere
+Don't forget to launch getflag !
+flag00@SnowCrash:~$ getflag
+Check flag.Here is your token : x24ti5gi3x0ol2eh4esiuxias
+flag00@SnowCrash:~$ su level01
+Password: x24ti5gi3x0ol2eh4esiuxias
+level01@SnowCrash:~$
+
+   12* find / -user flag00
+   13  find / -user flag00 2>/dev/null
+   14  getflag
+   15  cat /etc/passwd
+   16  strings /bin/getflag
+
+   strings - print the strings of printable characters in files.
+
+   tr is a command-line utility in Linux and Unix systems that translates, deletes, and squeezes characters from the standard input and writes the result to the standard output.
+
+
+
+
+

@@ -1,0 +1,100 @@
+level09@SnowCrash:~$ hexdump -C token
+00000000  66 34 6b 6d 6d 36 70 7c  3d 82 7f 70 82 6e 83 82  |f4kmm6p|=..p.n..|
+00000010  44 42 83 44 75 7b 7f 8c  89 0a                    |DB.Du{....|
+
+
+"66 34 6b 6d 6d 36 70 7c  3d 82 7f 70 82 6e 83 82 44 42 83 44 75 7b 7f 8c 89 0a"
+
+
+import sys
+
+a = sys.argv[1]
+b = a.split()
+c = []
+for i in b:
+    i = '0x' + i
+    c.append(i)
+
+a = c
+
+q = len(a)
+temp = []
+i = q - 1
+while q != 0:
+    temp.append(int(a[q - 1], 0) - i)
+    q -= 1
+    i -= 1
+for i in temp[::-1]:
+    if i > 0:
+        print(chr(i), end='')
+
+
+f3iji1ju5yuevaus41q1afiuq
+
+level09@SnowCrash:~$ su flag09
+Password:
+Don't forget to launch getflag !
+flag09@SnowCrash:~$ getflag
+Check flag.Here is your token : s5cAJpM8ev6XHw998pRWG728z
+
+flag09@SnowCrash:~$ su level10
+Password: /s5cAJpM8ev6XHw998pRWG728z/
+level10@SnowCrash:~$
+
+
+
+
+┌──(kali㉿kali)-[~]
+└─$ py script.py
+import sys
+
+a = "66 34 6b 6d 6d 36 70 7c  3d 82 7f 70 82 6e 83 82 44 42 83 44 75 7b 7f 8c 89 0a"
+b = a.split()
+c = []
+for i in b:
+    i = '0x' + i
+    c.append(i)
+
+a = c
+
+q = len(a)
+temp = []
+i = q - 1
+while q != 0:
+    temp.append(int(a[q - 1], 0) - i)
+    q -= 1
+    i -= 1
+for i in temp[::-1]:
+    if i > 0:
+        print(chr(i), end='')
+~
+~
+"script.py" 21L, 341B                                         5,5           All
+Command 'py' not found, but can be installed with:
+sudo apt install pythonpy
+
+┌──(kali㉿kali)-[~]
+└─$ pyton3 script.py                                                      127 ⨯
+Command 'pyton3' not found, did you mean:
+  command 'python3' from deb python3-minimal
+Try: sudo apt install <deb name>
+
+┌──(kali㉿kali)-[~]
+└─$ python3 script.py                                                     127 ⨯
+Traceback (most recent call last):
+  File "/home/kali/script.py", line 3, in <module>
+    a = sys.argv[1]
+IndexError: list index out of range
+
+┌──(kali㉿kali)-[~]
+└─$ vim                                                                     1 ⨯
+
+┌──(kali㉿kali)-[~]
+└─$ vim script.py
+
+┌──(kali㉿kali)-[~]
+└─$ vim script.py
+
+┌──(kali㉿kali)-[~]
+└─$ python3 script.py
+f3iji1ju5yuevaus41q1afiuq

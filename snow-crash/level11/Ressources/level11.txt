@@ -1,0 +1,42 @@
+*взлом getflag путем подмены uid
+level11@SnowCrash:~$ ls
+level11.lua
+
+gdb ./getflag
+break *main+72
+r
+set $eax=0
+c
+set $eax=3011
+
+q
+
+level11@SnowCrash:~$ su level12
+Password: /fa6v5ateaw21peobuub8ipe6s/
+level12@SnowCrash:~$
+
+
+(gdb) break *main+72
+Breakpoint 1 at 0x804898e
+(gdb) set $eax=0
+No registers.
+(gdb) break *main+452
+Breakpoint 2 at 0x8048b0a
+(gdb) r
+Starting program: /bin/getflag
+
+Breakpoint 1, 0x0804898e in main ()
+(gdb) set $eax=0
+(gdb) c
+Continuing.
+
+Breakpoint 2, 0x08048b0a in main ()
+(gdb) set $eax=3011
+(gdb) c
+Continuing.
+Check flag.Here is your token : fa6v5ateaw21peobuub8ipe6s
+[Inferior 1 (process 4388) exited normally]
+(gdb) q
+level11@SnowCrash:~$ su level12
+Password:
+level12@SnowCrash:~$
