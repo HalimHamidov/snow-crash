@@ -1,0 +1,42 @@
+level09@SnowCrash:~$ hexdump -C token
+00000000  66 34 6b 6d 6d 36 70 7c  3d 82 7f 70 82 6e 83 82  |f4kmm6p|=..p.n..|
+00000010  44 42 83 44 75 7b 7f 8c  89 0a                    |DB.Du{....|
+
+
+"66 34 6b 6d 6d 36 70 7c  3d 82 7f 70 82 6e 83 82 44 42 83 44 75 7b 7f 8c 89 0a"
+
+
+import sys
+
+a = sys.argv[1]
+b = a.split()
+c = []
+for i in b:
+    i = '0x' + i
+    c.append(i)
+
+a = c
+
+q = len(a)
+temp = []
+i = q - 1
+while q != 0:
+    temp.append(int(a[q - 1], 0) - i)
+    q -= 1
+    i -= 1
+for i in temp[::-1]:
+    if i > 0:
+        print(chr(i), end='')
+
+
+f3iji1ju5yuevaus41q1afiuq
+
+level09@SnowCrash:~$ su flag09
+Password:
+Don't forget to launch getflag !
+flag09@SnowCrash:~$ getflag
+Check flag.Here is your token : s5cAJpM8ev6XHw998pRWG728z
+
+flag09@SnowCrash:~$ su level10
+Password: /s5cAJpM8ev6XHw998pRWG728z/
+level10@SnowCrash:~$

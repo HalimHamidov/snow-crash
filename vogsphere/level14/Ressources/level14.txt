@@ -1,0 +1,9 @@
+*взлом getflag путем подмены uid
+
+gdb ./getflag
+break *main+72
+set $eax=0
+break *main+452
+set $eax=3014
+
+7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ

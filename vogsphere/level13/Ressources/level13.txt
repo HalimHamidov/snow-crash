@@ -1,0 +1,15 @@
+*взлом getflag путем подмены uid
+level13@SnowCrash:~$ ls
+level13
+level13@SnowCrash:~$ ./level13
+UID 2013 started us but we we expect 4242
+
+gdb ./getflag
+break *main+72
+set $eax=0
+break *main+452
+set $eax=3013
+
+level13@SnowCrash:~$ su level14
+Password: /2A31L79asukciNyi8uppkEuSx/
+level14@SnowCrash:~$

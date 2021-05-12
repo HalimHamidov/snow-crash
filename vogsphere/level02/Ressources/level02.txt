@@ -1,0 +1,50 @@
+level02@SnowCrash:~$ ls
+level02.pcap
+
+на маке вводим команду и скопируем файл level02.pcap  в текущую директорию
+чтобы расшифровать
+>>>
+➜  ~ scp -P 4242 level02@192.168.56.101:/home/user/level02/level02.pcap ~/
+	   _____                      _____               _
+	  / ____|                    / ____|             | |
+	 | (___  _ __   _____      _| |     _ __ __ _ ___| |__
+	  \___ \| '_ \ / _ \ \ /\ / / |    | '__/ _` / __| '_ \
+	  ____) | | | | (_) \ V  V /| |____| | | (_| \__ \ | | |
+	 |_____/|_| |_|\___/ \_/\_/  \_____|_|  \__,_|___/_| |_|
+
+  Good luck & Have fun
+
+          192.168.56.101
+level02@192.168.56.101's password:
+level02.pcap                                  100% 8302     4.3MB/s   00:00
+➜  ~ ls
+Applications Documents    Library      level02.pcap
+Desktop      Downloads    goinfre      snow-crash
+>>>
+
+➜  ~ brew install wireshark
+brew cask install wireshark
+
+Открываем файл с помощью wireshark
+следовать за потоком
+
+..wwwbugs login: l.le.ev.ve.el.lX.X
+..
+Password: ft_wandr...NDRel.L0L
+.
+..
+Login incorrect
+wwwbugs login:
+
+методом подбора выяснили, где точки столько символов слева удалить
+ft_waNDReL0L
+
+level02@SnowCrash:~$ su flag02
+Password:
+Don't forget to launch getflag !
+flag02@SnowCrash:~$ getflag
+Check flag.Here is your token : kooda2puivaav1idi4f57q8iq
+
+flag02@SnowCrash:~$ su level03
+Password:
+level03@SnowCrash:~$

@@ -1,0 +1,13 @@
+*взлом getflag путем подмены uid
+level11@SnowCrash:~$ ls
+level11.lua
+
+gdb ./getflag
+break *main+72
+set $eax=0
+break *main+452
+set $eax=3011
+
+level11@SnowCrash:~$ su level12
+Password: /fa6v5ateaw21peobuub8ipe6s/
+level12@SnowCrash:~$
